@@ -7,6 +7,9 @@ module.exports = {
         const product = await Promise.resolve(productsModel.getAllProducts());
         return product;
       },
-
+        productsByPrice: (_, args) => {
+          console.log('Getting the products by price...');
+          return productsModel.getProductsByPrice(args.min, args.max)
+        },
     }
 }

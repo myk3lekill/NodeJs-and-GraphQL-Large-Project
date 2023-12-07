@@ -4,11 +4,6 @@ const { loadFilesSync } = require('@graphql-tools/load-files')
 const { makeExecutableSchema } = require('@graphql-tools/schema');
 const { createYoga } = require('graphql-yoga');
 
-const root = {
-  products: require('./products/products.model'),
-  orders: require('./orders/orders.model')
-}
-
 const typesArray = loadFilesSync('**/*', {
   extensions: ['graphql'],
 });
