@@ -12,23 +12,13 @@ const root = {
 const typesArray = loadFilesSync('**/*', {
   extensions: ['graphql'],
 });
+const resolversArray = loadFilesSync('**/*', {
+  extensions: ['resolvers.js'],
+});
 
 const schema = makeExecutableSchema({
   typeDefs: typesArray,
-  resolvers: {
-    Query: {
-      products: async (parent, args, context, info) => {
-        console.log('Getting the products...');
-        const product = await Promise.resolve(root.products);
-        return product;
-      },
-      orders: async (parent, args, context, info) => {
-        console.log('Getting orders...');
-        const order = await Promise.resolve(root.orders);
-        return order;
-      }
-    }
-  }
+  resolvers: resolversArray
 })
 
 const app = express();
