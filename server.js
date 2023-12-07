@@ -7,25 +7,6 @@ type Query {
   products: [Product]
   orders: [Order]
 }
-type Product {
-  id: ID!
-  description: String!
-  price: Float!
-  reviews: [Review] 
-}
-type Review {
-  rating: Int!
-  comment: String
-}
-type Order {
-  date: String!
-  subtotal: Float!
-  items: [OrderItem]
-}
-type OrderItem {
-  product: Product!
-  quantity: Int!
-}
 `;
 
 const schema = makeExecutableSchema({
