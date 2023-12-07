@@ -1,16 +1,12 @@
 const express = require('express');
-
+const path = require('path');
+const {loadFilesSync} = require('@graphql-tools/load-files')
 const {makeExecutableSchema} = require('@graphql-tools/schema');
 
-const schemaText = `      
-type Query {
-  products: [Product]
-  orders: [Order]
-}
-`;
+const typesArray = loadFilesSync('**/*.graphql');
 
 const schema = makeExecutableSchema({
-  typeDefs: [schemaText]
+  typeDefs: schemaText
 })
 
 const app = express();
