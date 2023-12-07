@@ -18,7 +18,12 @@ module.exports = {
     },
     Mutation: {
       addNewProduct: (_, args) => {
+        console.log('New product added...');
         return productsModel.addNewProduct(args.id, args.description, args.price)
+      },
+      addNewProductReview: (_, args) => {
+        console.log('New product review added...');
+        return productsModel.addNewProductReview(args.id, args.rating, args.comment)
       }
     }
 }
