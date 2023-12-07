@@ -3,10 +3,10 @@ const path = require('path');
 const {loadFilesSync} = require('@graphql-tools/load-files')
 const {makeExecutableSchema} = require('@graphql-tools/schema');
 
-const typesArray = loadFilesSync('**/*.graphql');
+const typesArray = loadFilesSync(path.join(__dirname, '**/*.graphql'));
 
 const schema = makeExecutableSchema({
-  typeDefs: schemaText
+  typeDefs: typesArray
 })
 
 const app = express();
